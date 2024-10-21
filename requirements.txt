@@ -18,7 +18,7 @@ google-cloud-core==2.4.1
 google-pasta==0.2.0
 
 
-numpy==1.26.4
+
 pandas==2.2.3
 
 selenium==4.25.0
