@@ -106,7 +106,7 @@ def append_to_bigquery(cleaned_data, table_id):
 
 # Run the entire process
 if __name__ == "__main__":
-    from Amazon_scraper import main_scrape # type: ignore
+    from scraper import main_scrape # type: ignore
 
     new_data = main_scrape()
 
