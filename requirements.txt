@@ -17,21 +17,14 @@ google-cloud-core==2.4.1
 
 google-pasta==0.2.0
 
-keras==3.6.0
-Markdown==3.7
-markdown-it-py==2.2.0
-MarkupSafe==3.0.1
-mdurl==0.1.2
-mkl-service==2.4.0
-ml-dtypes==0.4.1
-narwhals==1.9.2
+
 numpy==1.26.4
 pandas==2.2.3
-pillow==10.4.0
+
 selenium==4.25.0
 streamlit==1.32.0
 tensorflow==2.17.0
 tensorflow-intel==2.17.0
-termcolor==2.5.0
+
 toml==0.10.2
 
