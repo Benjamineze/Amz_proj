@@ -36,6 +36,6 @@ jobs:
       - name: Authenticate to Google Cloud
         run: |
           gcloud auth activate-service-account --key-file $HOME/gcloud-key.json
-          gcloud config set project YOUR_PROJECT_ID
+          gcloud config set project amaz-project-438116
 
-      - 
+      
