@@ -2,7 +2,7 @@ name: Data Pipeline Automation
 
 on:
   schedule:
-    - cron: '0 0 * * TUE'  # Run every Tuesday at midnight
+    - cron: '0 22 * * MON'  # Run every Tuesday at midnight
   workflow_dispatch:  # Option to run manually
 
 jobs:
