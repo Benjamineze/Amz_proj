@@ -1,0 +1,43 @@
+name: Data Pipeline Automation
+
+on:
+  schedule:
+    - cron: '0 0 * * TUE'  # Run every Monday at midnight
+  workflow_dispatch:  # Option to run manually
+
+jobs:
+  scrape_and_clean:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run scraping script
+        run: C:\Users\Owner\Desktop  # scraping script
+
+      - name: Run data cleaning script
+        run: python scripts/clean_data.py  # Your data cleaning script
+
+      - name: Set up Google Cloud Auth
+        run: echo "${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}" > $HOME/gcloud-key.json
+
+      - name: Authenticate to Google Cloud
+        run: |
+          gcloud auth activate-service-account --key-file $HOME/gcloud-key.json
+          gcloud config set project YOUR_PROJECT_ID
+
+      - name: Append new data to BigQuery
+        run: python scripts/append_to_bigquery.py  # Script to append cleaned data to BigQuery
+
+      - name: Retrain the model
+        run: python scripts/train_model.py  # Your model training script
