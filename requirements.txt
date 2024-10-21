@@ -19,3 +19,4 @@ google-pasta==0.2.0
 
 selenium==4.25.0
 beautifulsoup4==4.10.0
+matplotlib
