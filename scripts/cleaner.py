@@ -13,6 +13,8 @@ def clean_data(df):
     df['Ratings'] = df['Ratings'].str.replace('out of 5 stars', '')
     df['Ratings'] = pd.to_numeric(df['Ratings'], errors='coerce')
     df['Ratings'] = df['Ratings'].fillna(df['Ratings'].median())
+
+    df['Price'] = pd.to_numeric(df['Price'], errors='coerce')  # Convert to numeric
     df['Price'] = df['Price'].fillna(df['Price'].median())
 
     #replace missing value of categorical data with the MODE¶
