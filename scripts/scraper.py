@@ -6,6 +6,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.proxy import Proxy, ProxyType
 from bs4 import BeautifulSoup
 import re
+import os
 
 # Set up the Selenium WebDriver with anti-detection options
 def setup_driver(proxy=None):
