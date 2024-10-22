@@ -82,10 +82,11 @@ def clean_data(df):
 # Append data to Google BigQuery
 def append_to_bigquery(cleaned_data, table_id):
     # Load the service account key
-    credentials = service_account.Credentials.from_service_account_file(
-        '/home/runner/gcloud-key.json'  
-    )
+    credentials_path = os.getenv("GOOGLE_APPLICATION_CREDENTIALS", "gcloud-key.json")
+    
+    credentials = service_account.Credentials.from_service_account_file(credentials_path)
     client = bigquery.Client(credentials=credentials, project="amaz-project-438116")
+
 
     # Define schema to ensure 'coll_date' is interpreted as DATE in BigQuery
     schema = [
