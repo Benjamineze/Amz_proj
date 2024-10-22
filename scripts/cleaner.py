@@ -67,7 +67,7 @@ def clean_data(df):
 # Append data to Google BigQuery
 def append_to_bigquery(cleaned_data, table_id):
     # Load the service account key
-    credentials_path = os.getenv("GOOGLE_APPLICATION_CREDENTIALS", "google_cloud_credentials.json")
+    credentials_path = os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
     
     # Check if the credentials file exists
     if not os.path.exists(credentials_path):
