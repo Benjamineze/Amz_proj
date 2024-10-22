@@ -2,7 +2,7 @@ name: Data Pipeline Automation
 
 on:
   schedule:
-    - cron: '0 22 * * MON'  # Run every Tuesday at midnight
+    - cron: '0 22 * * MON'  # Run every Monday at 10 PM
   workflow_dispatch:  # Option to run manually
 
 jobs:
@@ -21,21 +21,17 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
-
+          
       - name: Run scraping script
         run: |
           python scripts/scraper.py  # scraping script
-
+          
       - name: Run data cleaning and append script
         run: |
           python scripts/cleaner.py  # Your combined cleaning and appending script
 
-      - name: Set up Google Cloud credentials  # Fixed indentation here
-        env:
-          GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_CLOUD_CREDENTIALS }}  # Secret here
-        run: |
-          echo "${{ secrets.GOOGLE_CLOUD_CREDENTIALS }}" > google_cloud_credentials.json  # Writing the secret to the file
-          export GOOGLE_APPLICATION_CREDENTIALS=google_cloud_credentials.json  # Setting environment variable
+      - name: Set up Google Cloud Auth
+        run: echo "${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}" > $HOME/gcloud-key.json
 
       - name: Authenticate to Google Cloud
         run: |
