@@ -82,7 +82,7 @@ def clean_data(df):
 def append_to_bigquery(cleaned_data, table_id):
     # Load the service account key
     credentials = service_account.Credentials.from_service_account_file(
-        '/path/to/gcloud-key.json'  
+        'https://github.com/Benjamineze/Amz_proj/settings/secrets/actions/GOOGLE_APPLICATION_CREDENTIALS'  
     )
     client = bigquery.Client(credentials=credentials, project="amaz-project-438116")
 
