@@ -6,6 +6,7 @@ from collections import Counter
 import re
 import numpy as np
 from google.cloud import bigquery
+from google.oauth2 import service_account
 
 
 # Clean the data
@@ -82,7 +83,7 @@ def clean_data(df):
 def append_to_bigquery(cleaned_data, table_id):
     # Load the service account key
     credentials = service_account.Credentials.from_service_account_file(
-        'https://github.com/Benjamineze/Amz_proj/settings/secrets/actions/GOOGLE_APPLICATION_CREDENTIALS'  
+        '/home/runner/gcloud-key.json'  
     )
     client = bigquery.Client(credentials=credentials, project="amaz-project-438116")
 
