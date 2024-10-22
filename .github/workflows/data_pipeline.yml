@@ -31,7 +31,7 @@ jobs:
           python scripts/cleaner.py  # Your combined cleaning and appending script
 
       - name: Set up Google Cloud Auth
-        run: echo "${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}" > $HOME/gcloud-key.json
+        run: echo "${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}" | base64 --decode > $HOME/gcloud-key.json
 
       - name: Authenticate to Google Cloud
         run: |
