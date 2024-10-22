@@ -7,6 +7,7 @@ import re
 import numpy as np
 from google.cloud import bigquery
 from google.oauth2 import service_account
+import os
 
 
 # Clean the data
